@@ -1,9 +1,10 @@
 (function () {
-  window.___REDDIT_AUTO_EXPAND = false;
-  window.___REDDIT_AUTO_EXPAND_ENABLED = true;
-
+  if (typeof window.___REDDIT_AUTO_EXPAND === "undefined") {
+    window.___REDDIT_AUTO_EXPAND = false;
+    window.___REDDIT_AUTO_EXPAND_ENABLED = false;
+  }
   var expandFunc = function () {
-    if (autoExpand) {
+    if (window.___REDDIT_AUTO_EXPAND_ENABLED) {
       for (const e of document.getElementsByClassName(
         "expando-button hide-when-pinned video collapsed"
       )) {
@@ -23,4 +24,7 @@
   } else {
     toggleFunc();
   }
+  console.log(
+    "reddit-expand: " + " ENABLED=" + window.___REDDIT_AUTO_EXPAND_ENABLED
+  );
 })();

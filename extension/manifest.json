@@ -6,16 +6,20 @@
     "48": "/img/icons/icon_48.png",
     "128": "/img/icons/icon_128.png"
   },
-
   "description": "Automatically expand images on reddit.",
-  "permissions": [],
-
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "EXPAND"
+  },
   "content_scripts": [
     {
       "matches": ["*://*.reddit.com/*"],
-      "js": ["/js/content_script.js"]
+      "js": ["/js/content_script.js"],
+      "persistent": false
     }
   ],
-
-  "manifest_version": 2
+  "background": {
+    "service_worker": "/js/service-worker.js"
+  },
+  "manifest_version": 3
 }
