@@ -1,0 +1,21 @@
+{
+  "name": "reddit-auto-expand",
+  "version": "0.1",
+  "icons": {
+    "16": "/img/icons/icon_16.png",
+    "48": "/img/icons/icon_48.png",
+    "128": "/img/icons/icon_128.png"
+  },
+
+  "description": "Automatically expand images on reddit.",
+  "permissions": [],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.com/*"],
+      "js": ["/js/content_script.js"]
+    }
+  ],
+
+  "manifest_version": 2
+}
